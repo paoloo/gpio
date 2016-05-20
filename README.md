@@ -16,7 +16,7 @@ may be useful for someone.<br>I hope you enjoy!
 ## Usage
 ### on projects
 - add to dependencies of your rebar.config:
-```
+```erlang
 {deps, [
     {gpio, "", {git, "git://github.com/paoloo/gpio.git"}},
     ... % other dependencies goes here
@@ -28,7 +28,7 @@ $ rebar compile
 ```
 
 ### on REPL
-```
+```erlang-repl
 $ sudo erl
 Erlang/OTP 17 [erts-6.2] [source] [async-threads:10] [kernel-poll:false]
 
