@@ -58,7 +58,8 @@ $ erl -noshell -run edoc_run application 'gpio' '"."' '[]'
 ```
 
 ## Tested on
-- Erlang/OTP 17 erts-6.2 in GNU/Linux Raspian 8.0 (jessie) kernel 4.1.19+ armv61 on Raspberry B+.
+- Erlang/OTP 17 erts-6.2 in GNU/Linux Raspian 8.0 (jessie) kernel 4.1.19+ armv61 on Raspberry B+
+- Erlang R15B01 erts-5.9.1 in GNU/Linux Raspian 7 (wheezy) kernel 4.1.13+ armv6l on Raspberry B.
 
 ## License
 [MIT License](LICENSE.md) © 2015-2016 Paolo Oliveira.
