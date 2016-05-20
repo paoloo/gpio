@@ -1,0 +1,14 @@
+{application, gpio,
+ [
+  {description, "A simple raspbery pi user-space gpio library"},
+  {vsn, "1"},
+  {modules, [
+             gpio
+            ]},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {env, []}
+ ]}.
