@@ -44,10 +44,20 @@ write(Ref, Val) ->
 %% Internals
 
 configure(Pin, Direction) ->
+  DirectionFile = "/sys/class/gpio/gpio" ++ integer_to_list(Pin) ++ "/direction",
+
+  % Export the GPIO pin
   {ok, RefExport} = file:open("/sys/class/gpio/export", [write]),
   file:write(RefExport, integer_to_list(Pin)),
   file:close(RefExport),
-  {ok, RefDirection} = file:open("/sys/class/gpio/gpio" ++ integer_to_list(Pin) ++ "/direction", [write]),
+
+  % It can take a moment for the GPIO pin file to be created.
+  case filelib:is_file(DirectionFile) of
+      true -> ok;
+      false -> receive after 1000 -> ok end
+  end,
+
+  {ok, RefDirection} = file:open(DirectionFile, [write]),
   case Direction of
     in -> file:write(RefDirection, "in");
     out -> file:write(RefDirection, "out")
